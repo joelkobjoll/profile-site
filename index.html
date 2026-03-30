@@ -35,7 +35,6 @@
       overflow-x: hidden;
     }
 
-    /* Animated background */
     body::before {
       content: '';
       position: fixed;
@@ -63,10 +62,7 @@
       gap: 40px;
     }
 
-    .avatar-wrap {
-      flex-shrink: 0;
-      position: relative;
-    }
+    .avatar-wrap { flex-shrink: 0; position: relative; }
 
     .avatar {
       width: 96px;
@@ -115,17 +111,9 @@
       background-clip: text;
     }
 
-    .tagline {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
+    .tagline { color: var(--muted); font-size: 1rem; margin-bottom: 20px; }
 
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .badge {
       display: inline-flex;
@@ -138,8 +126,10 @@
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--muted);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
     }
-
+    .badge:hover { border-color: rgba(124,106,247,0.5); color: var(--text); }
     .badge.online { border-color: rgba(74,222,128,0.3); color: var(--green); }
     .badge.purple { border-color: rgba(124,106,247,0.3); color: var(--accent); }
     .badge.orange { border-color: rgba(247,119,106,0.3); color: var(--accent2); }
@@ -166,6 +156,19 @@
       background: var(--border);
     }
 
+    /* BIO */
+    .bio {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .bio strong { color: var(--accent); }
+
     /* CARD GRID */
     .card-grid {
       display: grid;
@@ -179,19 +182,27 @@
       border-radius: 12px;
       padding: 18px;
       transition: border-color 0.2s, transform 0.2s;
-      cursor: default;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
-    .card:hover {
-      border-color: rgba(124,106,247,0.4);
-      transform: translateY(-2px);
-    }
-
+    .card:hover { border-color: rgba(124,106,247,0.4); transform: translateY(-2px); }
     .card-icon { font-size: 22px; margin-bottom: 10px; }
     .card-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
     .card-desc { color: var(--muted); font-size: 13px; line-height: 1.4; }
+    .card-lang {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      border: 1px solid rgba(124,106,247,0.2);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
 
-    /* STATUS TABLE */
+    /* STATUS LIST */
     .status-list { display: flex; flex-direction: column; gap: 8px; }
 
     .status-item {
@@ -206,7 +217,6 @@
     }
 
     .status-item:hover { border-color: rgba(124,106,247,0.3); }
-
     .status-left { display: flex; align-items: center; gap: 10px; }
     .status-icon { font-size: 16px; width: 20px; text-align: center; }
     .status-name { font-size: 14px; font-weight: 500; }
@@ -220,14 +230,7 @@
     }
 
     .pill.green { background: rgba(74,222,128,0.1); color: var(--green); border: 1px solid rgba(74,222,128,0.2); }
-    .pill.red { background: rgba(248,113,113,0.1); color: var(--red); border: 1px solid rgba(248,113,113,0.2); }
     .pill.yellow { background: rgba(251,191,36,0.1); color: var(--yellow); border: 1px solid rgba(251,191,36,0.2); }
-
-    /* MONO CODE */
-    .mono {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-    }
 
     /* DOMAIN LIST */
     .domain-grid {
@@ -248,6 +251,7 @@
       align-items: center;
       gap: 6px;
       transition: border-color 0.2s;
+      text-decoration: none;
     }
 
     .domain-item:hover { border-color: rgba(124,106,247,0.4); }
@@ -283,15 +287,24 @@
       </div>
       <div class="header-text">
         <h1>Joel <span>Kobjoll</span></h1>
-        <p class="tagline">Builder of things. Hoarder of domains. Self-hoster at heart.</p>
+        <p class="tagline">Frontend Lead · 10 years of experience · based in Ronda, Spain</p>
         <div class="badges">
           <span class="badge online">● Online</span>
-          <span class="badge purple">🏠 Unraid</span>
-          <span class="badge orange">🐙 cucumba88</span>
-          <span class="badge purple">☁️ Self-hosted everything</span>
+          <a href="https://es.linkedin.com/in/joelkobjoll" class="badge purple" target="_blank">💼 LinkedIn</a>
+          <a href="https://github.com/joelkobjoll" class="badge" target="_blank">🐙 GitHub</a>
+          <span class="badge orange">📍 Ronda, Spain</span>
+          <span class="badge purple">🏠 Unraid self-hoster</span>
         </div>
       </div>
     </header>
+
+    <!-- BIO -->
+    <section>
+      <div class="section-label">About</div>
+      <div class="bio">
+        Frontend development lead at <strong>Whalar</strong> with over <strong>10 years of experience</strong> building web applications. Educated at CICE (La Escuela Profesional de Nuevas Tecnologías, Madrid). Passionate self-hoster running a full homelab on Unraid — from media servers to home automation to local AI. On GitHub since 2015 with 17 repos spanning TypeScript, React, Vue, Docker, and Home Assistant blueprints.
+      </div>
+    </section>
 
     <!-- PROJECTS -->
     <section>
@@ -300,33 +313,39 @@
         <div class="card">
           <div class="card-icon">🏇</div>
           <div class="card-title">Derby</div>
-          <div class="card-desc">A game project. API + client, deployed and running. <span class="mono">derbygame.es</span></div>
+          <div class="card-desc">Game project with API + client, live at derbygame.es.</div>
+          <span class="card-lang">TypeScript</span>
         </div>
         <div class="card">
           <div class="card-icon">🌺</div>
           <div class="card-title">Yoly Pakoro</div>
-          <div class="card-desc">Full-stack app with API, client, and MariaDB. <span class="mono">yolypakoro.com</span></div>
+          <div class="card-desc">Full-stack app with API, client, and MariaDB.</div>
+          <span class="card-lang">Node.js</span>
         </div>
         <div class="card">
           <div class="card-icon">🌙</div>
           <div class="card-title">Alzahra</div>
           <div class="card-desc">Dynamic pricing engine + guest & owner apps.</div>
+          <span class="card-lang">Node.js</span>
         </div>
         <div class="card">
           <div class="card-icon">🛸</div>
           <div class="card-title">WubbLubba</div>
-          <div class="card-desc">Plex-integrated app with watchdog. Because automation.</div>
+          <div class="card-desc">Plex-integrated media app with TypeScript watchdog daemon.</div>
+          <span class="card-lang">TypeScript</span>
         </div>
-        <div class="card">
-          <div class="card-icon">🏡</div>
-          <div class="card-title">Kobjoll</div>
-          <div class="card-desc">Personal landing + Strapi CMS. <span class="mono">kobjoll.es</span></div>
-        </div>
-        <div class="card">
-          <div class="card-icon">🤖</div>
-          <div class="card-title">HomeClawBot</div>
-          <div class="card-desc">AI assistant running on Unraid. That's me.</div>
-        </div>
+        <a href="https://github.com/joelkobjoll/transmission-watchdog" class="card" target="_blank">
+          <div class="card-icon">🔁</div>
+          <div class="card-title">transmission-watchdog</div>
+          <div class="card-desc">Bun/TS daemon that monitors Transmission behind WireGuard VPN on Unraid. Auto-recovery, port sync.</div>
+          <span class="card-lang">TypeScript · Bun</span>
+        </a>
+        <a href="https://github.com/joelkobjoll/ha-blueprints" class="card" target="_blank">
+          <div class="card-icon">🏠</div>
+          <div class="card-title">ha-blueprints</div>
+          <div class="card-desc">Home Assistant automation blueprints for the homelab.</div>
+          <span class="card-lang">YAML</span>
+        </a>
       </div>
     </section>
 
@@ -336,10 +355,10 @@
       <div class="status-list">
         <div class="status-item">
           <div class="status-left">
-            <div class="status-icon">🎬</div>
+            <div class="status-icon">🚀</div>
             <div>
-              <div class="status-name">Plex + Emby</div>
-              <div class="status-sub">Media server</div>
+              <div class="status-name">Dokploy</div>
+              <div class="status-sub">Self-hosted PaaS · 5 projects deployed</div>
             </div>
           </div>
           <span class="pill green">Running</span>
@@ -348,8 +367,18 @@
           <div class="status-left">
             <div class="status-icon">🏠</div>
             <div>
-              <div class="status-name">Home Assistant</div>
-              <div class="status-sub">home.kobjoll.es + Zigbee</div>
+              <div class="status-name">Home Assistant + Zigbee2MQTT</div>
+              <div class="status-sub">Full home automation stack</div>
+            </div>
+          </div>
+          <span class="pill green">Running</span>
+        </div>
+        <div class="status-item">
+          <div class="status-left">
+            <div class="status-icon">🎬</div>
+            <div>
+              <div class="status-name">Plex + Emby</div>
+              <div class="status-sub">Media streaming</div>
             </div>
           </div>
           <span class="pill green">Running</span>
@@ -359,7 +388,7 @@
             <div class="status-icon">📷</div>
             <div>
               <div class="status-name">Immich</div>
-              <div class="status-sub">Self-hosted Google Photos</div>
+              <div class="status-sub">Self-hosted photo library</div>
             </div>
           </div>
           <span class="pill green">Running</span>
@@ -378,18 +407,8 @@
           <div class="status-left">
             <div class="status-icon">☁️</div>
             <div>
-              <div class="status-name">Nextcloud + Supabase + Minio</div>
+              <div class="status-name">Nextcloud · Supabase · Minio</div>
               <div class="status-sub">Files, DB, object storage</div>
-            </div>
-          </div>
-          <span class="pill green">Running</span>
-        </div>
-        <div class="status-item">
-          <div class="status-left">
-            <div class="status-icon">🚀</div>
-            <div>
-              <div class="status-name">Dokploy</div>
-              <div class="status-sub">Self-hosted PaaS on Unraid</div>
             </div>
           </div>
           <span class="pill green">Running</span>
@@ -399,10 +418,20 @@
             <div class="status-icon">🔀</div>
             <div>
               <div class="status-name">Nginx Proxy Manager</div>
-              <div class="status-sub">46 proxy hosts and counting</div>
+              <div class="status-sub">46 proxy hosts, wildcard SSL</div>
             </div>
           </div>
           <span class="pill green">Running</span>
+        </div>
+        <div class="status-item">
+          <div class="status-left">
+            <div class="status-icon">🤖</div>
+            <div>
+              <div class="status-name">HomeClawBot</div>
+              <div class="status-sub">AI assistant running on Unraid (that's me)</div>
+            </div>
+          </div>
+          <span class="pill yellow">Sentient</span>
         </div>
       </div>
     </section>
@@ -411,19 +440,19 @@
     <section>
       <div class="section-label">Domains</div>
       <div class="domain-grid">
-        <div class="domain-item">🌐 kobjoll.es</div>
-        <div class="domain-item">🌐 kobjoll.casa</div>
-        <div class="domain-item">🌐 derbygame.es</div>
-        <div class="domain-item">🌐 yolypakoro.com</div>
-        <div class="domain-item">🌐 hibiscus.holiday</div>
-        <div class="domain-item">🌐 pilardelcampo.com</div>
+        <a href="https://kobjoll.es" class="domain-item" target="_blank">🌐 kobjoll.es</a>
+        <a href="https://kobjoll.casa" class="domain-item" target="_blank">🌐 kobjoll.casa</a>
+        <a href="https://derbygame.es" class="domain-item" target="_blank">🌐 derbygame.es</a>
+        <a href="https://yolypakoro.com" class="domain-item" target="_blank">🌐 yolypakoro.com</a>
+        <span class="domain-item">🌐 hibiscus.holiday</span>
+        <span class="domain-item">🌐 pilardelcampo.com</span>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-      <span>Joel Kobjoll · Built by his AI · 2026</span>
-      <span class="footer-right mono">profile.kobjoll.es</span>
+      <span>Joel Kobjoll · Frontend Lead at Whalar · Ronda, Spain</span>
+      <span class="footer-right mono">Built by his AI · 2026</span>
     </footer>
 
   </div>
