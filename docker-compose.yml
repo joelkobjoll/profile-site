@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5030:80"
+    networks:
+      - dokploy-network
+    restart: unless-stopped
+
+networks:
+  dokploy-network:
+    external: true
